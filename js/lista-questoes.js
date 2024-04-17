@@ -13,7 +13,6 @@ const  tabela = document.getElementById('tabela')
 const tbody = document.querySelector('tbody')
 
 preeencheCard()
-setInterval(removeCard(), 1000)
 
 
 document.addEventListener('click', (event) => {
