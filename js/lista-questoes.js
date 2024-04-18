@@ -40,14 +40,17 @@ onValue(dbQuestion, (snapshot)=>{
     dados.forEach(item => {
 
         let tdButton = document.createElement('td');
+       
+        
+
         let btnDelete = document.createElement('button');
         let btnEdit = document.createElement('button');
-        btnDelete.textContent = 'x';
+        btnDelete.innerHTML = '<i class="bi bi-trash3-fill"></i>';
         btnDelete.type = "button";
         btnEdit.type = "button";
-        btnEdit.textContent = 'edit';
-        btnDelete.classList.add("btn","btn-danger", "m-1", "btn-sm")
-        btnEdit.classList.add("btn","btn-warning", "m-1", "btn-sm")
+        btnEdit.innerHTML = '<i class="bi bi-pencil-square"></i>'
+        btnEdit.classList.add("btn","btn-warning", "me-1", "btn-sm")
+        btnDelete.classList.add("btn","btn-danger","btn-sm")      
 
 
         btnDelete.addEventListener('click', function(){
@@ -87,6 +90,8 @@ onValue(dbQuestion, (snapshot)=>{
           // Criar a célula da pergunta
           let td = document.createElement('td');
           let td_quantidade = document.createElement('td');
+          td.classList.add("w-auto")
+          td_quantidade.classList.add('w-25', 'text-center')
           td.textContent = item[1].pergunta;
           td_quantidade.textContent = item[1].respostas.length;
 
