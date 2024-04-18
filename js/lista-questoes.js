@@ -12,7 +12,7 @@ const dbQuestion = ref(database, 'question')
 const  tabela = document.getElementById('tabela')
 const tbody = document.querySelector('tbody')
 
-preeencheCard()
+
 
 
 document.addEventListener('click', (event) => {
@@ -90,13 +90,16 @@ onValue(dbQuestion, (snapshot)=>{
           // Criar a célula da pergunta
           let td = document.createElement('td');
           let td_quantidade = document.createElement('td');
-          td.classList.add("w-auto")
-          td_quantidade.classList.add('w-25', 'text-center')
+          
+          td_quantidade.classList.add('text-center')
           td.textContent = item[1].pergunta;
+          
           td_quantidade.textContent = item[1].respostas.length;
 
+          tdButton.classList.add("no-wrape")
           tdButton.appendChild(btnEdit)
           tdButton.appendChild(btnDelete)
+          
           
          
   
