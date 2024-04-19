@@ -14,35 +14,30 @@ const tbody = document.querySelector('tbody')
 
 
 
-
+/* 
 document.addEventListener('click', (event) => {
     // Quando um item for clicado, exiba seu texto
     console.log(event.target.tagName + ': ' + event.target.textContent);
 });
 
+*/
+
+
 
 onValue(dbQuestion, (snapshot)=>{
   
     let values = Object.values(snapshot.val())
-    //values não traz o id;
+    
     const dados = Object.entries(snapshot.val());
     
    
-    //console.log(dados)
+    
   
     tbody.innerHTML = '';
-
-    
-
-
-
 
     dados.forEach(item => {
 
         let tdButton = document.createElement('td');
-       
-        
-
         let btnDelete = document.createElement('button');
         let btnEdit = document.createElement('button');
         btnDelete.innerHTML = '<i class="bi bi-trash3-fill"></i>';
@@ -57,7 +52,9 @@ onValue(dbQuestion, (snapshot)=>{
             let row = this.closest('tr');
             row.remove()
             removeItem(row.childNodes[0].innerText)
-            //console.log(row.childNodes[0].innerText)
+            
+
+            console.log(row.childNodes[0].innerText)
         })
 
         btnEdit.addEventListener('click', function(){
@@ -65,13 +62,8 @@ onValue(dbQuestion, (snapshot)=>{
             
             localStorage.setItem("id-edit", row.childNodes[0].innerText);
 
-            // onValue(item, (snapshot)=>{
-            //     let dados = Object.entries(snapshot.val());
-            //     console.log(dados)
-
-            // })
-            //console.log(row.childNodes[0].innerText)
-            //console.log(item)
+            
+            console.log(row.childNodes[0].innerText)
             window.location.href = 'edit-question.html';
         })
 
@@ -83,9 +75,10 @@ onValue(dbQuestion, (snapshot)=>{
 
           // Criar o cabeçalho da linha com o ID do item
           let th = document.createElement('th');
+          th.classList.add("d-none")
           //th.setAttribute('scope', 'row');
         
-         // th.textContent = item[0]; // ID do item
+         th.textContent = item[0]; // ID do item
   
           // Criar a célula da pergunta
           let td = document.createElement('td');
@@ -104,7 +97,7 @@ onValue(dbQuestion, (snapshot)=>{
          
   
           // Adicionar o cabeçalho e a célula à linha
-          //tr.appendChild(th);
+          tr.appendChild(th);
           tr.appendChild(td);
           tr.appendChild(td_quantidade);
           tr.appendChild(tdButton)
@@ -117,21 +110,6 @@ onValue(dbQuestion, (snapshot)=>{
 
    
 });
-
-
-
-// function verificaECriaNodoQuestion() {
-//     const dbQuestionRef = ref(database, 'question');
-//     onValue(dbQuestionRef, (snapshot) => {
-//         if (!snapshot.exists()) {
-//             // Nó 'question' não existe, então criamos ele com um valor inicial vazio
-//             set(dbQuestionRef, {});
-//         }
-//     });
-// }
-
-
-
 
 
 
