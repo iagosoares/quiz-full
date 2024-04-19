@@ -96,7 +96,7 @@ onValue(dbQuestion, (snapshot)=>{
           
           td_quantidade.textContent = item[1].respostas.length;
 
-          tdButton.classList.add("no-wrape")
+          tdButton.classList.add("no-wrape", "text-center")
           tdButton.appendChild(btnEdit)
           tdButton.appendChild(btnDelete)
           
