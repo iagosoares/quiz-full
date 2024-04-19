@@ -67,6 +67,7 @@ buttonAdd.addEventListener('click', function(){
     };
     
     push(dbQuestion, json)
+    inputQuestion.value = ""
     limpaInputs();
     
 });
