@@ -158,7 +158,6 @@ function arrayAleatorio(arrayDeArrays){
 function removeItem(id){
 
     let itemRef = ref(database, `question/${id}`)
-
      remove(itemRef);
      //função para remover um item do realtime, funcionando
 
