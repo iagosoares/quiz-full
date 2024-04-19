@@ -22,15 +22,11 @@ document.addEventListener('click', (event) => {
 
 */
 
-
-
 onValue(dbQuestion, (snapshot)=>{
   
     let values = Object.values(snapshot.val())
     
-    const dados = Object.entries(snapshot.val());
-    
-   
+    const dados = Object.entries(snapshot.val());  
     
   
     tbody.innerHTML = '';
@@ -67,9 +63,6 @@ onValue(dbQuestion, (snapshot)=>{
             window.location.href = 'edit-question.html';
         })
 
-
-
-
           // Criar uma nova linha para cada item
           let tr = document.createElement('tr');
 
@@ -91,9 +84,7 @@ onValue(dbQuestion, (snapshot)=>{
 
           tdButton.classList.add("no-wrape", "text-center")
           tdButton.appendChild(btnEdit)
-          tdButton.appendChild(btnDelete)
-          
-          
+          tdButton.appendChild(btnDelete)          
          
   
           // Adicionar o cabeçalho e a célula à linha
@@ -110,8 +101,6 @@ onValue(dbQuestion, (snapshot)=>{
 
    
 });
-
-
 
 
 function arrayAleatorio(arrayDeArrays){
